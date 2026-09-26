@@ -1,19 +1,15 @@
 # Password Manager (CLI)
 
-A simple local command-line Password Manager written in Python.
+A local command-line Password Manager built with Python.
 
-## Current Features
+## Features
 
 - Add new password entries (service, username, password)
-- View all entries (passwords hidden by default)
-- Data is stored locally
-
-## Planned Features
-
-- Search entries
+- View all entries (passwords hidden)
+- Search entries by service name
 - Delete entries
-- Encryption for secure storage
-- Master password protection
+- Automatic save and load using JSON
+- Passwords are encrypted using Fernet (cryptography library)
 
 ## How to Run
 
