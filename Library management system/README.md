@@ -1,22 +1,16 @@
 # Library Management System (CLI)
 
-> **Status: in progress** — core borrowing logic is built and tested; return handling, due dates, persistence, and the menu loop are still to come.
-
 A command-line library system written in Python, using three cooperating classes: `Book`, `Member`, and `Library`.
 
-## Features so far
+## Features
 
-- `Book` and `Member` classes with their own data and behavior
-- `Library` class that manages a catalog of books and registered members
-- Borrowing a book: finds the book and member, checks availability, updates both objects
-- Search books by title, search members by ID
-
-## Still to build
-
-- Returning a borrowed book
-- Due dates and an overdue-books report
-- Saving/loading data between runs
-- An interactive menu
+- `Book`, `Member`, and `Library` classes, each handling their own data and behavior
+- Add books to the catalog and register members
+- Borrow and return books, with automatic 14-day due dates
+- Prevents borrowing when no copies are available, and returning a book that isn't actually checked out
+- Overdue books report, comparing due dates against today's date
+- Full catalog listing showing availability per book
+- Data persists between runs via JSON — including due dates and which member has which book
 
 ## How to Run
 
@@ -30,8 +24,11 @@ python library.py
 
 No external libraries needed.
 
-## What I'm Learning
+## What I Learned
 
-- Object-oriented programming: classes, `self`, constructors
-- Multiple classes cooperating (`Library` calling methods on `Book` and `Member` objects it holds)
-- Encapsulating data and behavior together, instead of separate functions acting on a shared list
+- Object-oriented programming: classes, `self`, constructors, and multiple classes cooperating together
+- The difference between a class (the blueprint) and an object/instance (a specific thing built from it)
+- `@staticmethod` for building objects from saved data
+- Converting objects to and from plain dictionaries (`to_dict()` / `from_dict()`) to make them JSON-serializable, including nested objects (a `Member`'s borrowed `Book` objects)
+- Working with `date` and `timedelta` for due-date calculations and comparisons
+- Structuring a larger, multi-class program compared to the single-flat-list approach used in earlier projects
