@@ -78,13 +78,12 @@ def display_weather(data:dict):
 def main():
     while True:
 
-        city = input("Enter City name (or "q" to quit): ").strip()
+        city = input('Enter City name (or "q" to quit): ').strip()
 
         if city.lower() == "q":
             print("Goodbye!!")
             break
 
-        
         data = get_weather(city)
 
         if data:
